@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private ContactRepository contactRepository;
 
-    // ================= DASHBOARD =================
+    //  DASHBOARD 
     @GetMapping("/dashboard")
     public String dashboard(Model model, Principal principal) {
 
@@ -36,7 +36,7 @@ public class UserController {
         return "user/dashboard"; // templates/user/dashboard.html
     }
 
-    // ================= ADD CONTACT PAGE =================
+    //  ADD CONTACT PAGE 
     @GetMapping("/add-contact")
     public String addContact(Model model) {
 
@@ -46,7 +46,7 @@ public class UserController {
         return "user/add_contact";
     }
 
-    // ================= SAVE CONTACT =================
+    //  SAVE CONTACT 
     @PostMapping("/process-contact")
     public String processContact(@ModelAttribute Contact contact,
                                  Principal principal) {
@@ -62,7 +62,7 @@ public class UserController {
         return "redirect:/user/show-contacts";
     }
 
-    // ================= SHOW CONTACTS =================
+    //  SHOW CONTACTS 
     @GetMapping("/show-contacts")
     public String showContacts(Model model, Principal principal) {
 
@@ -77,7 +77,7 @@ public class UserController {
         return "user/show_contacts";
     }
 
-    // ================= VIEW CONTACT =================
+    //  VIEW CONTACT 
     @GetMapping("/contact/{id}")
     public String viewContact(@PathVariable("id") Integer id,
                               Model model,
@@ -91,7 +91,7 @@ public class UserController {
         return "user/view_contact";
     }
 
-    // ================= EDIT CONTACT PAGE =================
+    //  EDIT CONTACT PAGE
     @GetMapping("/update/{id}")
     public String updateContact(@PathVariable("id") Integer id,
                                 Model model) {
@@ -104,7 +104,7 @@ public class UserController {
         return "user/edit_contact";
     }
 
-    // ================= UPDATE CONTACT =================
+    //  UPDATE CONTACT 
     @PostMapping("/update-contact")
     public String updateHandler(@ModelAttribute Contact contact,
                                 Principal principal) {
@@ -119,7 +119,7 @@ public class UserController {
         
     }
 
-    // ================= DELETE CONTACT =================
+    // DELETE CONTACT 
     @GetMapping("/delete/{id}")
     public String deleteContact(@PathVariable("id") Integer id,
                                 Principal principal) {
