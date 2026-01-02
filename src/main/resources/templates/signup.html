@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: layout(~{::section})">
+
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="my-card mt-3">
+
+                    <div class="container text-center">
+                        <img style="width: 80px;"
+                             th:src="@{/img/membership.png}"
+                             alt=""/>
+                    </div>
+
+                    <h1 class="text-center">Register Here !!</h1>
+
+                    <form th:action="@{/do_register}"
+                          method="post"
+                          th:object="${user}">
+
+                        <!-- Name -->
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   th:field="*{name}"
+                                   required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label>Your Email</label>
+                            <input type="email"
+                                   class="form-control"
+                                   th:field="*{email}"
+                                   required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label>Your Password</label>
+                            <input type="password"
+                                   class="form-control"
+                                   th:field="*{password}"
+                                   required>
+                        </div>
+
+                        <!-- About -->
+                        <div class="form-group">
+                            <label>About Yourself</label>
+                            <textarea class="form-control"
+                                      rows="3"
+                                      th:field="*{about}">
+                            </textarea>
+                        </div>
+
+                        <!-- Agreement -->
+                        <div class="form-group form-check text-center">
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   required>
+                            <label class="form-check-label">
+                                Accept terms & conditions
+                            </label>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="container text-center">
+                            <button type="submit"
+                                    class="btn bg-primary text-white">
+                                Submit
+                            </button>
+
+                            <button type="reset"
+                                    class="btn bg-primary text-white">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</html>

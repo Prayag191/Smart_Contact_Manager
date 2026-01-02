@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: layout(~{::section})">
+
+<section class="container mt-4">
+
+    <h3>Edit Contact</h3>
+
+    <form th:action="@{/user/update-contact}"
+          method="post"
+          th:object="${contact}"
+          class="mt-3">
+
+        <input type="hidden" th:field="*{cId}">
+
+        <input type="text" th:field="*{name}"
+               class="form-control mb-2" required>
+
+        <input type="email" th:field="*{email}"
+               class="form-control mb-2">
+
+        <input type="text" th:field="*{phone}"
+               class="form-control mb-2">
+
+        <input type="text" th:field="*{work}"
+               class="form-control mb-2">
+
+        <textarea th:field="*{description}"
+                  class="form-control mb-3"></textarea>
+
+        <button class="btn btn-success">Update</button>
+        <a th:href="@{/user/show-contacts}" class="btn btn-secondary ml-2">
+            Cancel
+        </a>
+
+    </form>
+
+</section>
+</html>

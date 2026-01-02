@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: layout(~{::section})">
+
+<section>
+    <div class="container mt-4">
+
+        <h2 class="text-center">Add New Contact</h2>
+
+        <form th:action="@{/user/process-contact}"
+              method="post"
+              th:object="${contact}"
+              class="mt-4">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" th:field="*{name}" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Second Name</label>
+                <input type="text" th:field="*{secondName}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Work</label>
+                <input type="text" th:field="*{work}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" th:field="*{email}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" th:field="*{phone}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea th:field="*{description}" class="form-control"></textarea>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary">Save Contact</button>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+</html>

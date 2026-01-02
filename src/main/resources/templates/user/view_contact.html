@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: layout(~{::section})">
+
+<section class="container mt-4">
+
+    <h3>Contact Details</h3>
+
+    <p><b>Name:</b> <span th:text="${contact.name}"></span></p>
+    <p><b>Email:</b> <span th:text="${contact.email}"></span></p>
+    <p><b>Phone:</b> <span th:text="${contact.phone}"></span></p>
+    <p><b>Work:</b> <span th:text="${contact.work}"></span></p>
+    <p><b>Description:</b> <span th:text="${contact.description}"></span></p>
+
+    <a th:href="@{/user/show-contacts}" class="btn btn-secondary mt-3">
+        ⬅ Back
+    </a>
+
+</section>
+</html>

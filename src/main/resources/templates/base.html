@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    <title th:text="${title}">Smart Contact Manager</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" th:href="@{/}">SmartContactManager</a>
+
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto text-uppercase">
+
+            <li class="nav-item">
+                <a th:href="@{/}" class="nav-link">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a th:href="@{/about}" class="nav-link">About</a>
+            </li>
+
+            <li class="nav-item">
+                <a th:href="@{/signin}" class="nav-link">Login</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a th:href="@{/signup}" class="nav-link">Signup</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<div th:replace="${content}"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

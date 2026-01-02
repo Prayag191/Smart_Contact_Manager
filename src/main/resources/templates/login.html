@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="base :: layout(~{::section})">
+
+<section>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        .login-card {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            color: #fff;
+        }
+
+        .login-card h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 30px;
+            padding-left: 45px;
+            height: 50px;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 18px;
+            transform: translateY(-50%);
+            color: #764ba2;
+        }
+
+        .btn-login {
+            border-radius: 30px;
+            height: 50px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border: none;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .register-link a {
+            color: #ffd369;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="container d-flex justify-content-center align-items-center"
+         style="min-height: 90vh;">
+
+        <div class="col-md-4 login-card text-center">
+
+            <img th:src="@{/img/login.png}"
+                 style="width: 80px; margin-bottom: 15px;"
+                 alt="Login Icon">
+
+            <h2>Welcome Back 👋</h2>
+            <p class="mb-4">Login to your Smart Contact Manager</p>
+
+            <form th:action="@{/do_login}" method="post">
+
+                <!-- Email -->
+                <div class="form-group position-relative mb-3">
+                    <i class="fa fa-envelope input-icon"></i>
+                    <input type="email"
+                           name="username"
+                           class="form-control"
+                           placeholder="Enter Email"
+                           required>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group position-relative mb-4">
+                    <i class="fa fa-lock input-icon"></i>
+                    <input type="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Enter Password"
+                           required>
+                </div>
+
+                <button type="submit" class="btn btn-login w-100">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="register-link mt-4">
+                <p>
+                    Don’t have an account?
+                    <a th:href="@{/signup}">Register</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+</html>
